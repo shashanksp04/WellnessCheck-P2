@@ -2,7 +2,10 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:paddingTop="40dp"
     android:background="@color/primaryColor">
 
     <LinearLayout
@@ -38,30 +41,133 @@
             android:textColor="@color/textColorPrimary"
             android:layout_marginBottom="8dp" />
 
-        <!-- Daily Checklist Items -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:elevation="4dp"
+        android:backgroundTint="@color/cardBackground"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <!-- Checklist Title -->
+
+    <!-- Scrollable Checklist Area -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+    android:background="@color/scrollBackground"
+    android:padding="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- CheckBox 1 -->
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Had 8 hours of sleep"
             android:buttonTint="@color/checkBoxColor"
-            android:textColor="@color/textColorPrimary"
-            android:layout_marginBottom="8dp" />
+            android:textColor="@color/textColorPrimary" />
 
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/progressBackground"
+            android:layout_marginVertical="8dp" />
+
+        <!-- CheckBox 2 -->
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Drank 2 liters of water"
             android:buttonTint="@color/checkBoxColor"
-            android:textColor="@color/textColorPrimary"
-            android:layout_marginBottom="8dp" />
+            android:textColor="@color/textColorPrimary" />
 
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/progressBackground"
+            android:layout_marginVertical="8dp" />
+
+        <!-- CheckBox 3 -->
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Completed workout"
             android:buttonTint="@color/checkBoxColor"
+            android:textColor="@color/textColorPrimary" />
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/progressBackground"
+            android:layout_marginVertical="8dp" />
+
+        <!-- CheckBox 4 -->
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ate 5 servings of fruits/vegetables"
+            android:buttonTint="@color/checkBoxColor"
+            android:textColor="@color/textColorPrimary" />
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/progressBackground"
+            android:layout_marginVertical="8dp" />
+
+        <!-- CheckBox 5 -->
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Took 10,000 steps"
+            android:buttonTint="@color/checkBoxColor"
+            android:textColor="@color/textColorPrimary" />
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/progressBackground"
+            android:layout_marginVertical="8dp" />
+
+        <!-- CheckBox 6 -->
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Practiced mindfulness for 10 minutes"
+            android:buttonTint="@color/checkBoxColor"
+            android:textColor="@color/textColorPrimary" />
+    </LinearLayout>
+</ScrollView>
+    </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Daily Wellness Stats"
+            android:textSize="24sp"
+            android:textStyle="bold"
             android:textColor="@color/textColorPrimary"
-            android:layout_marginBottom="24dp" />
+            android:layout_marginBottom="8dp" />
 
         <!-- Water and Calorie Intake Summary -->
         <LinearLayout
@@ -166,11 +272,11 @@
             android:id="@+id/progressCalorieBar"
             android:layout_width="match_parent"
             android:layout_height="8dp"
-            android:progress="25"
+            android:layout_marginTop="4dp"
             android:max="100"
-            android:progressTint="@color/accentColor"
+            android:progress="25"
             android:progressBackgroundTint="@color/progressBackground"
-            android:layout_marginTop="4dp" />
+            android:progressTint="@color/accentColor" />
 
     </LinearLayout>
 </ScrollView>
