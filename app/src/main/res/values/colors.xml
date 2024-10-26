@@ -4,6 +4,7 @@
     <color name="primaryColor">#F5F5F5</color> <!-- Light gray for main background -->
     <color name="secondaryColor">#808080</color> <!-- Gray for inactive text/icon state -->
     <color name="accentColor">#00BCD4</color> <!-- Light blue for progress bars or accent highlights -->
+    <color name="scrollBackground">#F5F5F5</color> <!-- Light gray or any color you prefer -->
 
     <!-- Purple Colors for Accents -->
     <color name="purple_200">#BB86FC</color>
@@ -14,13 +15,15 @@
     <color name="teal_200">#03DAC5</color>
     <color name="teal_700">#018786</color>
 
+    <color name="backgroundColor">#F5F5F5</color> <!-- Light gray background -->
+    <color name="textColorPrimary">#1C1C1E</color> <!-- Dark gray for main text -->
+    <color name="textColorSecondary">#8E8E93</color> <!-- Lighter gray for secondary text -->
+
     <!-- Common Colors -->
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color> <!-- White for cards and Bottom Navigation background -->
 
     <!-- UI Element Colors -->
-    <color name="textColorPrimary">#000000</color> <!-- Black for primary text -->
-    <color name="textColorSecondary">#7D7D7D</color> <!-- Gray for secondary text -->
     <color name="cardBackground">#FFFFFF</color> <!-- White for cards background -->
     <color name="checkBoxColor">#000000</color> <!-- Black checkboxes -->
     <color name="progressBackground">#E0E0E0</color> <!-- Light gray for progress bar background -->
