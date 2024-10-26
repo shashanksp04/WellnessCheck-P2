@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -32,9 +31,33 @@ class HomeFragment : Fragment() {
         // Set initial values (you can change these based on dynamic data)
         waterTextView.text = "2.5L"
         caloriesTextView.text = "1800 kcal"
-        progressWeightBar.progress = 25
-        progressCalorieBar.progress = 25
+
+        // Example data for current and target weights and calorie goals
+        val currentWeight = 70.0 // kg
+        val targetWeight = 65.0 // kg
+        val startingWeight = 75.0 // kg (example starting weight)
+
+        val currentCalories = 2500 // kcal consumed today
+        val dailyCalorieGoal = 500 // kcal goal
+
+        // Calculate weight progress as a percentage of target weight loss achieved
+        val weightProgress = calculateWeightProgress(currentWeight, targetWeight, startingWeight)
+        progressWeightBar.progress = weightProgress
+
+        // Calculate calorie progress as a percentage of daily goal achieved
+        val calorieProgress = calculateCalorieProgress(currentCalories, dailyCalorieGoal)
+        progressCalorieBar.progress = calorieProgress
 
         return root
+    }
+
+    private fun calculateWeightProgress(currentWeight: Double, targetWeight: Double, startingWeight: Double): Int {
+        val totalLossNeeded = startingWeight - targetWeight
+        val currentLossAchieved = startingWeight - currentWeight
+        return ((currentLossAchieved / totalLossNeeded) * 100).toInt()
+    }
+
+    private fun calculateCalorieProgress(currentCalories: Int, dailyGoal: Int): Int {
+        return ((currentCalories.toDouble() / dailyGoal) * 100).toInt()
     }
 }

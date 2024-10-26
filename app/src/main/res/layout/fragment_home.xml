@@ -135,17 +135,33 @@
             android:textColor="@color/textColorPrimary"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="8dp" />
-
-        <!-- Progress Report Details and Bars -->
-        <TextView
-            android:layout_width="wrap_content"
+        <!-- Weight Progress -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Current: 70kg, Target: 65kg"
-            android:textSize="14sp"
-            android:textColor="@color/textColorSecondary" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Current: 70kg, Target: 65kg"
+                android:textSize="14sp"
+                android:textColor="@color/textColorSecondary"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/weightPercentageTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="25%"
+                android:textSize="14sp"
+                android:textColor="@color/textColorSecondary" />
+        </LinearLayout>
 
         <ProgressBar
             android:id="@+id/progressWeightBar"
+            style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="8dp"
             android:progress="25"
@@ -155,22 +171,38 @@
             android:layout_marginTop="4dp"
             android:layout_marginBottom="16dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <!-- Calorie Progress -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Daily Goal: 500 kcal"
-            android:textSize="14sp"
-            android:textColor="@color/textColorSecondary" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Daily Goal: 500 kcal"
+                android:textSize="14sp"
+                android:textColor="@color/textColorSecondary"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/caloriePercentageTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="25%"
+                android:textSize="14sp"
+                android:textColor="@color/textColorSecondary" />
+        </LinearLayout>
 
         <ProgressBar
             android:id="@+id/progressCalorieBar"
+            style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="8dp"
             android:progress="25"
             android:max="100"
             android:progressTint="@color/accentColor"
-            android:progressBackgroundTint="@color/progressBackground"
-            android:layout_marginTop="4dp" />
-
+            android:progressBackgroundTint="@color/progressBackground" />
     </LinearLayout>
 </ScrollView>
