@@ -1,10 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Core Colors -->
+    <color name="primaryColor">#F5F5F5</color> <!-- Light gray for main background -->
+    <color name="secondaryColor">#808080</color> <!-- Gray for inactive text/icon state -->
+    <color name="accentColor">#00BCD4</color> <!-- Light blue for progress bars or accent highlights -->
+
+    <!-- Purple Colors for Accents -->
+    <color name="purple_200">#BB86FC</color>
+    <color name="purple_500">#6200EE</color> <!-- Main purple for active state like selected tab icons -->
+    <color name="purple_700">#3700B3</color>
+
+    <!-- Teal Colors (If Needed) -->
+    <color name="teal_200">#03DAC5</color>
+    <color name="teal_700">#018786</color>
+
+    <!-- Common Colors -->
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color> <!-- White for cards and Bottom Navigation background -->
+
+    <!-- UI Element Colors -->
+    <color name="textColorPrimary">#000000</color> <!-- Black for primary text -->
+    <color name="textColorSecondary">#7D7D7D</color> <!-- Gray for secondary text -->
+    <color name="cardBackground">#FFFFFF</color> <!-- White for cards background -->
+    <color name="checkBoxColor">#000000</color> <!-- Black checkboxes -->
+    <color name="progressBackground">#E0E0E0</color> <!-- Light gray for progress bar background -->
+
+    <!-- Bottom Navigation Colors -->
+    <color name="bottom_nav_selected">#6200EE</color> <!-- Purple for active icon and text color -->
+    <color name="bottom_nav_unselected">#808080</color> <!-- Gray for inactive icon and text color -->
 </resources>

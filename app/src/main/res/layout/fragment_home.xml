@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="#F0F4F8">
+    android:background="@color/primaryColor">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,7 +17,7 @@
             android:text="Good Morning, John Doe!"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:textColor="#000000"
+            android:textColor="@color/textColorPrimary"
             android:layout_marginBottom="4dp" />
 
         <TextView
@@ -25,34 +25,42 @@
             android:layout_height="wrap_content"
             android:text="Today is October 5, 2023"
             android:textSize="16sp"
-            android:textColor="#7D7D7D"
+            android:textColor="@color/textColorSecondary"
             android:layout_marginBottom="16dp" />
 
-        <!-- Daily Checklist -->
+        <!-- Daily Checklist Header -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Daily Wellness Checklist"
             android:textSize="18sp"
             android:textStyle="bold"
+            android:textColor="@color/textColorPrimary"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Daily Checklist Items -->
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Had 8 hours of sleep"
+            android:buttonTint="@color/checkBoxColor"
+            android:textColor="@color/textColorPrimary"
             android:layout_marginBottom="8dp" />
 
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Had 8 hours of sleep"
-            android:layout_marginBottom="4dp" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:text="Drank 2 liters of water"
-            android:layout_marginBottom="4dp" />
+            android:buttonTint="@color/checkBoxColor"
+            android:textColor="@color/textColorPrimary"
+            android:layout_marginBottom="8dp" />
 
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Completed workout"
+            android:buttonTint="@color/checkBoxColor"
+            android:textColor="@color/textColorPrimary"
             android:layout_marginBottom="24dp" />
 
         <!-- Water and Calorie Intake Summary -->
@@ -68,7 +76,7 @@
                 android:layout_weight="1"
                 android:orientation="vertical"
                 android:padding="8dp"
-                android:background="#FFFFFF"
+                android:background="@color/cardBackground"
                 android:layout_marginEnd="4dp"
                 android:elevation="2dp">
 
@@ -77,7 +85,7 @@
                     android:layout_height="wrap_content"
                     android:text="Water"
                     android:textSize="16sp"
-                    android:textColor="#000000" />
+                    android:textColor="@color/textColorPrimary" />
 
                 <TextView
                     android:id="@+id/waterTextView"
@@ -85,7 +93,7 @@
                     android:layout_height="wrap_content"
                     android:text="2.5L"
                     android:textSize="14sp"
-                    android:textColor="#7D7D7D"
+                    android:textColor="@color/textColorSecondary"
                     android:layout_marginTop="4dp" />
             </LinearLayout>
 
@@ -95,7 +103,7 @@
                 android:layout_weight="1"
                 android:orientation="vertical"
                 android:padding="8dp"
-                android:background="#FFFFFF"
+                android:background="@color/cardBackground"
                 android:layout_marginStart="4dp"
                 android:elevation="2dp">
 
@@ -104,7 +112,7 @@
                     android:layout_height="wrap_content"
                     android:text="Calories In"
                     android:textSize="16sp"
-                    android:textColor="#000000" />
+                    android:textColor="@color/textColorPrimary" />
 
                 <TextView
                     android:id="@+id/caloriesTextView"
@@ -112,27 +120,29 @@
                     android:layout_height="wrap_content"
                     android:text="1800 kcal"
                     android:textSize="14sp"
-                    android:textColor="#7D7D7D"
+                    android:textColor="@color/textColorSecondary"
                     android:layout_marginTop="4dp" />
             </LinearLayout>
         </LinearLayout>
 
-        <!-- Progress Report -->
+        <!-- Progress Report Header -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Progress Report"
             android:textSize="18sp"
             android:textStyle="bold"
+            android:textColor="@color/textColorPrimary"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="8dp" />
 
+        <!-- Progress Report Details and Bars -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Current: 70kg, Target: 65kg"
             android:textSize="14sp"
-            android:textColor="#7D7D7D" />
+            android:textColor="@color/textColorSecondary" />
 
         <ProgressBar
             android:id="@+id/progressWeightBar"
@@ -140,7 +150,8 @@
             android:layout_height="8dp"
             android:progress="25"
             android:max="100"
-            android:progressTint="#00BCD4"
+            android:progressTint="@color/accentColor"
+            android:progressBackgroundTint="@color/progressBackground"
             android:layout_marginTop="4dp"
             android:layout_marginBottom="16dp" />
 
@@ -149,7 +160,7 @@
             android:layout_height="wrap_content"
             android:text="Daily Goal: 500 kcal"
             android:textSize="14sp"
-            android:textColor="#7D7D7D" />
+            android:textColor="@color/textColorSecondary" />
 
         <ProgressBar
             android:id="@+id/progressCalorieBar"
@@ -157,7 +168,8 @@
             android:layout_height="8dp"
             android:progress="25"
             android:max="100"
-            android:progressTint="#00BCD4"
+            android:progressTint="@color/accentColor"
+            android:progressBackgroundTint="@color/progressBackground"
             android:layout_marginTop="4dp" />
 
     </LinearLayout>
