@@ -4,39 +4,37 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import com.example.wellnesscheck.databinding.FragmentHomeBinding
+import com.example.wellnesscheck.R
 
 class HomeFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
+    private lateinit var waterTextView: TextView
+    private lateinit var caloriesTextView: TextView
+    private lateinit var progressWeightBar: ProgressBar
+    private lateinit var progressCalorieBar: ProgressBar
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
+    ): View? {
+        val root = inflater.inflate(R.layout.fragment_home, container, false)
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        // Initialize UI components
+        waterTextView = root.findViewById(R.id.waterTextView)
+        caloriesTextView = root.findViewById(R.id.caloriesTextView)
+        progressWeightBar = root.findViewById(R.id.progressWeightBar)
+        progressCalorieBar = root.findViewById(R.id.progressCalorieBar)
 
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
+        // Set initial values (you can change these based on dynamic data)
+        waterTextView.text = "2.5L"
+        caloriesTextView.text = "1800 kcal"
+        progressWeightBar.progress = 25
+        progressCalorieBar.progress = 25
+
         return root
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }
