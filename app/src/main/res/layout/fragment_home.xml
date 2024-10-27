@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Default Hamburger Menu Icon at the Top Left -->
+
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,6 +22,13 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <ImageView
+            android:id="@+id/hamburger_icon"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/menu"
+            android:contentDescription="Menu Icon" />
         <!-- Greeting and Date -->
         <TextView
             android:layout_width="wrap_content"
@@ -169,65 +185,198 @@
             android:textColor="@color/textColorPrimary"
             android:layout_marginBottom="8dp" />
 
-        <!-- Water and Calorie Intake Summary -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:layout_marginBottom="16dp">
 
+            <!-- First Row with Water and Food Cards -->
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="8dp"
-                android:background="@color/cardBackground"
-                android:layout_marginEnd="4dp"
-                android:elevation="2dp">
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_marginBottom="8dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <!-- Water Intake Card -->
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Water"
-                    android:textSize="16sp"
-                    android:textColor="@color/textColorPrimary" />
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:padding="8dp"
+                    android:background="@color/cardBackground"
+                    android:elevation="2dp"
+                    android:layout_marginEnd="4dp">
 
-                <TextView
-                    android:id="@+id/waterTextView"
-                    android:layout_width="wrap_content"
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="12dp"
+                        android:contentDescription="Water icon"
+                        android:src="@drawable/water" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Water"
+                            android:textSize="16sp"
+                            android:textColor="@color/textColorPrimary" />
+
+                        <TextView
+                            android:id="@+id/waterTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2.5L"
+                            android:textSize="14sp"
+                            android:textColor="@color/textColorSecondary"
+                            android:layout_marginTop="4dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Food Intake Card -->
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="2.5L"
-                    android:textSize="14sp"
-                    android:textColor="@color/textColorSecondary"
-                    android:layout_marginTop="4dp" />
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:padding="8dp"
+                    android:background="@color/cardBackground"
+                    android:elevation="2dp"
+                    android:layout_marginStart="4dp">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/food"
+                        android:contentDescription="Food icon"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="12dp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Calories In"
+                            android:textSize="16sp"
+                            android:textColor="@color/textColorPrimary" />
+
+                        <TextView
+                            android:id="@+id/caloriesTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1800 kcal"
+                            android:textSize="14sp"
+                            android:textColor="@color/textColorSecondary"
+                            android:layout_marginTop="4dp" />
+                    </LinearLayout>
+                </LinearLayout>
             </LinearLayout>
 
+            <!-- Second Row with Steps and Sleep Cards -->
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="8dp"
-                android:background="@color/cardBackground"
-                android:layout_marginStart="4dp"
-                android:elevation="2dp">
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_marginBottom="8dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <!-- Steps Count Card -->
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Calories In"
-                    android:textSize="16sp"
-                    android:textColor="@color/textColorPrimary" />
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:padding="8dp"
+                    android:background="@color/cardBackground"
+                    android:elevation="2dp"
+                    android:layout_marginEnd="4dp">
 
-                <TextView
-                    android:id="@+id/caloriesTextView"
-                    android:layout_width="wrap_content"
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/steps"
+                        android:contentDescription="Steps icon"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="12dp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Steps"
+                            android:textSize="16sp"
+                            android:textColor="@color/textColorPrimary" />
+
+                        <TextView
+                            android:id="@+id/stepsTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5000 steps"
+                            android:textSize="14sp"
+                            android:textColor="@color/textColorSecondary"
+                            android:layout_marginTop="4dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Sleep Card -->
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="1800 kcal"
-                    android:textSize="14sp"
-                    android:textColor="@color/textColorSecondary"
-                    android:layout_marginTop="4dp" />
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:padding="8dp"
+                    android:background="@color/cardBackground"
+                    android:elevation="2dp"
+                    android:layout_marginStart="4dp">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/sleep"
+                        android:contentDescription="Sleep icon"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="12dp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sleep"
+                            android:textSize="16sp"
+                            android:textColor="@color/textColorPrimary" />
+
+                        <TextView
+                            android:id="@+id/sleepTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="7 hrs"
+                            android:textSize="14sp"
+                            android:textColor="@color/textColorSecondary"
+                            android:layout_marginTop="4dp" />
+                    </LinearLayout>
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
 
@@ -280,3 +429,5 @@
 
     </LinearLayout>
 </ScrollView>
+</RelativeLayout>
+
