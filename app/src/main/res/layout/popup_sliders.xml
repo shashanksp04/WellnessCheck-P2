@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Water Slider -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Water (L)"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp" />
+
+    <SeekBar
+        android:id="@+id/waterSlider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="500" />
+
+    <!-- Calories Slider -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calories (kcal)"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp" />
+
+    <SeekBar
+        android:id="@+id/caloriesSlider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="3000" />
+
+    <!-- Steps Slider -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Steps"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp" />
+
+    <SeekBar
+        android:id="@+id/stepsSlider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="20000" />
+
+    <!-- Sleep Slider -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sleep (hrs)"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp" />
+
+    <SeekBar
+        android:id="@+id/sleepSlider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="12" />
+
+</LinearLayout>

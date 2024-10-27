@@ -364,6 +364,17 @@
             </LinearLayout>
         </LinearLayout>
 
+        <!-- Button for Popup -->
+        <Button
+            android:id="@+id/editValuesButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit Values"
+            android:layout_gravity="right"
+            android:backgroundTint="@color/accentColor"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="4dp" />
+
         <!-- Progress Report Header -->
         <TextView
             android:layout_width="wrap_content"
