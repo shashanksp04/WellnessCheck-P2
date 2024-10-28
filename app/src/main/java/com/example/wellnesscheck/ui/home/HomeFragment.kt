@@ -13,11 +13,14 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.example.wellnesscheck.R
+import org.w3c.dom.Text
 
 class HomeFragment : Fragment() {
 
     private lateinit var waterTextView: TextView
     private lateinit var caloriesTextView: TextView
+    private lateinit var stepTextView: TextView
+    private lateinit var sleepsTextView: TextView
     private lateinit var progressWeightBar: ProgressBar
     private lateinit var progressCalorieBar: ProgressBar
     private lateinit var weightTextView: TextView
@@ -36,6 +39,8 @@ class HomeFragment : Fragment() {
         // Initialize UI components
         waterTextView = root.findViewById(R.id.waterTextView)
         caloriesTextView = root.findViewById(R.id.caloriesTextView)
+        stepTextView = root.findViewById(R.id.stepsTextView)
+        sleepsTextView = root.findViewById(R.id.sleepTextView)
         progressWeightBar = root.findViewById(R.id.progressWeightBar)
         progressCalorieBar = root.findViewById(R.id.progressCalorieBar)
         weightTextView = root.findViewById(R.id.weightTextGoal)
@@ -44,15 +49,18 @@ class HomeFragment : Fragment() {
         caloriesPercent = root.findViewById(R.id.caloriePercentageTextView)
         editValuesButton = root.findViewById(R.id.editValuesButton) // Add button in XML layout
 
-        // Set initial values
-        waterTextView.text = "2.5L"
-        caloriesTextView.text = "1800 kcal"
+        // default values
+        waterTextView.text = "0.0L"
+        caloriesTextView.text = "0 kcal"
+        stepTextView.text = "0 steps"
+        sleepsTextView.text = "0 hrs"
+        val currentCalories = 0
+        val dailyCalorieGoal = 1500
+
 
         val currentWeight = 70.0
         val targetWeight = 65.0
         val startingWeight = 75.0
-        val currentCalories = 1000
-        val dailyCalorieGoal = 1500
 
         // Calculate initial weight and calorie progress
         val weightProgress = calculateWeightProgress(currentWeight, targetWeight, startingWeight)
@@ -66,7 +74,8 @@ class HomeFragment : Fragment() {
         caloriesView.text = "Daily goal: $dailyCalorieGoal kcal"
 
         // Set up button to show popup dialog for editing values
-        editValuesButton.setOnClickListener { showEditDialog() }
+        editValuesButton.setOnClickListener { showEditDialog(waterTextView,caloriesTextView,
+            stepTextView,sleepsTextView, progressCalorieBar, caloriesPercent, dailyCalorieGoal) }
 
         return root
     }
@@ -81,7 +90,8 @@ class HomeFragment : Fragment() {
         return ((currentCalories.toDouble() / dailyGoal) * 100).toInt()
     }
 
-    private fun showEditDialog() {
+    private fun showEditDialog(water:TextView, calorie:TextView,step:TextView,sleep:TextView,
+                               progress:ProgressBar, caloriePercent:TextView, dailyGoal: Int) {
         val dialogView = LayoutInflater.from(requireContext()).inflate(R.layout.popup_sliders, null)
         val waterSlider = dialogView.findViewById<SeekBar>(R.id.waterSlider)
         val caloriesSlider = dialogView.findViewById<SeekBar>(R.id.caloriesSlider)
@@ -90,10 +100,10 @@ class HomeFragment : Fragment() {
 
 
         // Set initial slider values
-        waterSlider.progress = (2.5 * 100).toInt() // Example: 2.5 liters as 250
-        caloriesSlider.progress = 1800
-        stepsSlider.progress = 5000
-        sleepSlider.progress = 7
+        waterSlider.progress = 0 // Example: 2.5 liters as 250
+        caloriesSlider.progress = 0
+        stepsSlider.progress = 0
+        sleepSlider.progress = 0
 
         AlertDialog.Builder(requireContext())
             .setTitle("Edit Wellness Stats")
@@ -105,7 +115,15 @@ class HomeFragment : Fragment() {
                 val stepsValue = stepsSlider.progress
                 val sleepValue = sleepSlider.progress
 
-                // Update the displayed values
+                // Updating the displayed values
+                water.text = "$waterValue L"
+                calorie.text = "$calorieValue kcal"
+                step.text = "$stepsValue steps"
+                sleep.text = "$sleepValue hrs"
+
+                val calorieProgress = calculateCalorieProgress(calorieValue, dailyGoal)
+                progress.progress = calorieProgress
+                caloriePercent.text = "$calorieProgress%"
 
                 dialog.dismiss()
             }

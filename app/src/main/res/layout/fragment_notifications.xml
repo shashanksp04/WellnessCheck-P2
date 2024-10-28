@@ -97,36 +97,68 @@
                     android:text="Update Data"
                     android:layout_marginBottom="16dp" />
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:text="Current Weight : "
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:hint="Current Weight"
+                    android:hint="Enter your current weight here"
                     android:inputType="number"
+                    android:textSize="15dp"
                     android:minHeight="48dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:text="Current BMI : "
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:hint="BMI"
+                    android:hint="Enter your current know BMI here"
                     android:inputType="numberDecimal"
+                    android:textSize="15dp"
                     android:minHeight="48dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:text= "Body Fat % : "
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:hint="Body Fat %"
+                    android:hint="Enter your current known Body Fat % here"
                     android:inputType="numberDecimal"
+                    android:textSize="15dp"
                     android:minHeight="48dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:text="Muscle Mass"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:hint="Muscle Mass"
+                    android:hint="Enter your current known Muscle Mass here"
                     android:inputType="number"
+                    android:textSize="15dp"
                     android:minHeight="48dp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -152,27 +184,51 @@
                     android:text="Submit"
                     android:layout_marginBottom="16dp" />
 
-                <EditText
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginTop="8dp"
-                    android:hint="Desired Calories"
-                    android:inputType="number"
-                    android:minHeight="48dp" />
+                    android:text="Desired calories"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:hint="Desired Protein"
+                    android:hint="Enter Desired Calories here"
                     android:inputType="number"
+                    android:textSize="15dp"
                     android:minHeight="48dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:text="Desired Protein"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="Enter Desired Protein here"
+                    android:inputType="number"
+                    android:textSize="15dp"
+                    android:minHeight="48dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_marginTop="8dp"
-                    android:hint="Desired Carbs"
+                    android:text="Desired Carbs"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter your Desired Carbs here"
+                    android:textSize="15dp"
                     android:inputType="number"
                     android:minHeight="48dp" />
             </LinearLayout>
