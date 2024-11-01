@@ -369,7 +369,7 @@
             android:id="@+id/editValuesButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Edit Values"
+            android:text="Update Values"
             android:layout_gravity="right"
             android:backgroundTint="@color/accentColor"
             android:textColor="@android:color/white"
@@ -396,7 +396,7 @@
                 android:id="@+id/weightTextGoal"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Current: 70kg, Target: 65kg"
+                android:text="Goal: 65.0 kg, Current: 70.0 kg,"
                 android:textSize="14sp"
                 android:textColor="@color/textColorSecondary"
                 android:layout_weight="1" />
@@ -433,7 +433,7 @@
                 android:id="@+id/calorieGoalText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Daily Goal: 500 kcal"
+                android:text="Daily Goal: 1500 kcal, Current: 1000 kcal"
                 android:textSize="14sp"
                 android:textColor="@color/textColorSecondary"
                 android:layout_weight="1" />
@@ -456,5 +456,15 @@
             android:max="100"
             android:progressTint="@color/accentColor"
             android:progressBackgroundTint="@color/progressBackground" />
+
+        <Button
+            android:id="@+id/updateValuesButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update Goal"
+            android:layout_gravity="right"
+            android:backgroundTint="@color/accentColor"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="4dp" />
     </LinearLayout>
 </ScrollView>
