@@ -63,6 +63,8 @@ class HomeFragment : Fragment() {
         todayDate = root.findViewById(R.id.dateToday)
         userGreeting = root.findViewById(R.id.greetingUser)
 
+
+
         // default
         todayDate.text = getFormattedCurrentDate()
         userGreeting.text = getGreeting("John Doe")
@@ -89,8 +91,9 @@ class HomeFragment : Fragment() {
         caloriesView.text = "Daily goal: $dailyCalorieGoal kcal, Current: $currentCalories"
 
         // Set up button to show popup dialog for editing values
-        editValuesButton.setOnClickListener { showEditDialog(waterTextView, caloriesTextView,
-            stepTextView,sleepsTextView,
+        editValuesButton.setOnClickListener { showEditDialog(waterTextView,
+            caloriesTextView,stepTextView,
+             sleepsTextView,
             progressWeightBar, weightPercent, weightTextView,
             progressCalorieBar, caloriesPercent, caloriesView,
             dailyCalorieGoal, targetWeight) }
@@ -161,8 +164,9 @@ class HomeFragment : Fragment() {
         return matchResult?.groupValues?.get(1)?.toDoubleOrNull()
     }
 
-    private fun showEditDialog(water:TextView, calorie:TextView, step:TextView,sleep:TextView,
-                               progressWeight: ProgressBar, weightPercent: TextView, weightText: TextView,
+    private fun showEditDialog(water:TextView, calorie:TextView, step:TextView,
+                              sleep:TextView, progressWeight: ProgressBar, weightPercent: TextView,
+                               weightText: TextView,
                                progress:ProgressBar, caloriePercent:TextView, calorieText: TextView,
                                dailyGoal: Int, targetWeight: Double) {
         val dialogView = LayoutInflater.from(requireContext()).inflate(R.layout.popup_sliders, null)
@@ -171,47 +175,61 @@ class HomeFragment : Fragment() {
         val stepsSlider = dialogView.findViewById<SeekBar>(R.id.stepsSlider)
         val sleepSlider = dialogView.findViewById<SeekBar>(R.id.sleepSlider)
         val weightSlider = dialogView.findViewById<SeekBar>(R.id.weightSlider)
-
+        val waterDisplay = dialogView.findViewById<TextView>(R.id.waterValue)
+        val stepDisplay = dialogView.findViewById<TextView>(R.id.stepsValue)
+        val calorieDisplay = dialogView.findViewById<TextView>(R.id.caloriesValue)
+        val sleepDisplay = dialogView.findViewById<TextView>(R.id.sleepValue)
+        val weightDisplay = dialogView.findViewById<TextView>(R.id.weightValue)
 
         // Set initial slider values
         val waterText = water.text.toString()
         val waterValue = extractDecimalFromText(waterText)
         if (waterValue != null) {
              waterSlider.progress= (waterValue * 100).toInt()
+             waterDisplay.text = "$waterValue L"
         } else {
             waterSlider.progress = 250
+            waterDisplay.text = "2.5 L"
         }
 
         val calorieExtractText = calorie.text.toString()
         val calExtractValue = extractDecimalFromText(calorieExtractText)
         if (calExtractValue != null) {
             caloriesSlider.progress= calExtractValue.toInt()
+            calorieDisplay.text = "${calExtractValue.toInt()} kcal"
         } else {
-            caloriesSlider.progress = 622
+            caloriesSlider.progress = 1500
+            calorieDisplay.text = "1500 kcal"
         }
 
         val sleepExText = sleep.text.toString()
         val sleepExValue = extractDecimalFromText(sleepExText)
         if (sleepExValue != null) {
             sleepSlider.progress= sleepExValue.toInt()
+            sleepDisplay.text = "${sleepExValue.toInt()} hrs"
         } else {
-            sleepSlider.progress = 2000
+            sleepSlider.progress = 7
+            sleepDisplay.text = "7 hrs"
         }
 
         val stepsExText = step.text.toString()
         val stepExValue = extractDecimalFromText(stepsExText)
         if (stepExValue != null) {
             stepsSlider.progress= stepExValue.toInt()
+            stepDisplay.text = "${stepExValue.toInt()} steps"
         } else {
-            stepsSlider.progress = 7
+            stepsSlider.progress = 2000
+            stepDisplay.text = "2000 steps"
         }
 
         val weightExText = weightText.text.toString()
         val weightExValue = extractSecondInteger(weightExText)
         if (weightExValue != null) {
             weightSlider.progress= weightExValue.toInt()
+            weightDisplay.text = "$weightExValue kg"
         } else {
             weightSlider.progress = 70
+            weightDisplay.text = "70 kg"
         }
 
         AlertDialog.Builder(requireContext())
@@ -227,10 +245,15 @@ class HomeFragment : Fragment() {
 
                 // Updating the displayed values
                 water.text = "$waterValue L"
+                waterDisplay.text = "$waterValue L"
                 calorie.text = "$calorieValue kcal"
+                calorieDisplay.text = "$calorieValue kcal"
                 step.text = "$stepsValue steps"
+                stepDisplay.text = "$stepsValue steps"
                 sleep.text = "$sleepValue hrs"
+                sleepDisplay.text = "$sleepValue hrs"
 
+                weightDisplay.text = "$weightValue kg"
                 val weightProgress = calculateWeightProgress(weightValue.toDouble(),targetWeight,
                     85.0)
                 progressWeight.progress = weightProgress
@@ -256,25 +279,31 @@ class HomeFragment : Fragment() {
             R.layout.popup_updategoal_sliders, null)
         val calorieSlider = dialogView.findViewById<SeekBar>(R.id.caloriesGoalSlider)
         val weightSlider = dialogView.findViewById<SeekBar>(R.id.weightGoalSlider)
+        val weightDisplay =  dialogView.findViewById<TextView>(R.id.weightGoalValue)
+        val calorieDisplay = dialogView.findViewById<TextView>(R.id.caloriesGoalValue)
 
         val weightExText = weightText.text.toString()
-        println("$weightExText \n")
+        // println("$weightExText \n")
         val weightExValue = extractFirstInteger(weightExText)
-        println("$weightExValue \n")
+        // println("$weightExValue \n")
         if (weightExValue != null) {
             weightSlider.progress= weightExValue.toInt()
+            weightDisplay.text = "$weightExValue kg"
         } else {
             weightSlider.progress = 70
+            weightDisplay.text = "70 kg"
         }
 
         val calorieExText = calorieText.text.toString()
-        println("$calorieExText \n")
+        // println("$calorieExText \n")
         val calorieExValue = extractFirstValue(calorieExText)
-        println("$calorieExValue \n")
+        // println("$calorieExValue \n")
         if (calorieExValue != null) {
             calorieSlider.progress= calorieExValue.toInt()
+            calorieDisplay.text = "${calorieExValue.toInt()} kcal"
         } else {
             calorieSlider.progress = 1000
+            calorieDisplay.text = "1000 kcal"
         }
 
         AlertDialog.Builder(requireContext())
@@ -283,7 +312,9 @@ class HomeFragment : Fragment() {
             .setPositiveButton("Save") { dialog, _ ->
                 // Retrieve and update values from sliders
                 val weightGoalValue = weightSlider.progress
+                weightDisplay.text = "$weightGoalValue kg"
                 val calorieGoalValue = calorieSlider.progress
+                calorieDisplay.text = "${calorieGoalValue.toInt()} kcal"
 
                 // Updating the displayed values
                 val weightsProgress = calculateWeightProgress(weightValue,
