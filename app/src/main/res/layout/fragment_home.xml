@@ -15,6 +15,7 @@
 
         <!-- Greeting and Date -->
         <TextView
+            android:id="@+id/greetingUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Good Morning, John Doe!"
@@ -24,6 +25,7 @@
             android:layout_marginBottom="4dp" />
 
         <TextView
+            android:id="@+id/dateToday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Today is October 5, 2023"

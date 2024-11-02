@@ -1,6 +1,8 @@
 package com.example.wellnesscheck.ui.home
 
 import android.annotation.SuppressLint
+import android.icu.util.Calendar
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,11 +12,15 @@ import android.widget.CheckBox
 import android.widget.ProgressBar
 import android.widget.SeekBar
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.example.wellnesscheck.R
 import org.w3c.dom.Text
+import java.time.LocalDate
 import kotlin.math.abs
+import java.time.format.DateTimeFormatter
+
 
 class HomeFragment : Fragment() {
 
@@ -30,7 +36,10 @@ class HomeFragment : Fragment() {
     private lateinit var caloriesPercent: TextView
     private lateinit var editValuesButton: Button
     private lateinit var updateGoalButton: Button
+    private lateinit var todayDate:TextView
+    private lateinit var userGreeting:TextView
 
+    @RequiresApi(Build.VERSION_CODES.O)
     @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -51,8 +60,12 @@ class HomeFragment : Fragment() {
         caloriesPercent = root.findViewById(R.id.caloriePercentageTextView)
         editValuesButton = root.findViewById(R.id.editValuesButton)
         updateGoalButton = root.findViewById(R.id.updateValuesButton)
+        todayDate = root.findViewById(R.id.dateToday)
+        userGreeting = root.findViewById(R.id.greetingUser)
 
-        // default values
+        // default
+        todayDate.text = getFormattedCurrentDate()
+        userGreeting.text = getGreeting("John Doe")
         waterTextView.text = "2.5L"
         caloriesTextView.text = "1000 kcal"
         stepTextView.text = "2000 steps"
@@ -65,7 +78,6 @@ class HomeFragment : Fragment() {
         val targetWeight = 65.0
         val startingWeight = 85.0
 
-        // Calculate initial weight and calorie progress
         val weightProgress = calculateWeightProgress(currentWeight, targetWeight, startingWeight)
         progressWeightBar.progress = weightProgress
         weightPercent.text = "$weightProgress%"
@@ -87,6 +99,32 @@ class HomeFragment : Fragment() {
             progressWeightBar, caloriesView, caloriesPercent, progressCalorieBar,
             dailyCalorieGoal, currentCalories,targetWeight, currentWeight)}
         return root
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun getFormattedCurrentDate(): String {
+
+        val currentDate = LocalDate.now()
+
+
+        val formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy")
+
+
+        val formattedDate = currentDate.format(formatter)
+
+        return "Today is $formattedDate"
+    }
+
+    private fun getGreeting(name: String): String {
+        val calendar = Calendar.getInstance()
+        val hour = calendar.get(Calendar.HOUR_OF_DAY)
+
+        return when (hour) {
+            in 5..11 -> "Good Morning, $name!"
+            in 12..17 -> "Good Afternoon, $name!"
+            in 18..20 -> "Good Evening, $name!"
+            else -> "Good Night, $name!"
+        }
     }
 
     private fun calculateWeightProgress(currentWeight: Double, targetWeight: Double, startingWeight: Double): Int {

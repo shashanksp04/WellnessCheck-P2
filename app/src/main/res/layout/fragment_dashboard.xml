@@ -37,15 +37,17 @@
                     android:textStyle="bold" />
 
                 <EditText
+                    android:id="@+id/foodEdit"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_marginTop="8dp"
                     android:backgroundTint="@color/progressBackground"
-                    android:enabled="false"
+                    android:enabled="true"
                     android:hint="500 kcal"
                     android:padding="12dp" />
 
                 <Button
+                    android:id="@+id/foodUpdate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -79,15 +81,17 @@
                     android:textStyle="bold" />
 
                 <EditText
+                    android:id="@+id/waterEdit"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_marginTop="8dp"
                     android:backgroundTint="@color/progressBackground"
-                    android:enabled="false"
+                    android:enabled="true"
                     android:hint="1.5 L"
                     android:padding="12dp" />
 
                 <Button
+                    android:id="@+id/waterUpdate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
