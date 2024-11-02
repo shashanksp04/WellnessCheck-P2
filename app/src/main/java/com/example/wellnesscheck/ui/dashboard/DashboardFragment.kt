@@ -1,5 +1,6 @@
 package com.example.wellnesscheck.ui.dashboard
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,10 +16,15 @@ class DashboardFragment : Fragment() {
 
     private var _binding: FragmentDashboardBinding? = null
     private val binding get() = _binding!!
+    private lateinit var updateFoodButton: Button
+    private lateinit var updateWaterButton: Button
+    private lateinit var foodEdit : EditText
+    private lateinit var waterEdit : EditText
 
     // Sample list of activities
     private val activities = mutableListOf("Select an activity...", "Running: 30 mins, Moderate", "Walking: 45 mins, Light")
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -30,6 +36,20 @@ class DashboardFragment : Fragment() {
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        updateFoodButton = binding.foodUpdate
+        updateWaterButton = binding.waterUpdate
+        foodEdit = binding.foodEdit
+        waterEdit = binding.waterEdit
+//        val roots = inflater.inflate(R.layout.fragment_dashboard, container, false)
+//        updateFoodButton = roots.findViewById(R.id.foodUpdate)
+//        updateWaterButton = roots.findViewById(R.id.waterUpdate)
+//        foodEdit = roots.findViewById(R.id.foodEdit)
+//        waterEdit = roots.findViewById(R.id.waterEdit)
+
+        updateFoodButton.setOnClickListener{
+            updateValue(foodEdit, "500 kcal")}
+        updateWaterButton.setOnClickListener{updateValue(waterEdit, "1.5 L")}
+
         // Setup activity spinner and add activity button
         setupActivityCard()
 
@@ -37,6 +57,11 @@ class DashboardFragment : Fragment() {
         setupCalorieRecommendationsEditButton()
 
         return root
+    }
+
+    private fun updateValue(textVal : EditText, stringVal : String){
+        textVal.setText("")
+        textVal.hint = stringVal
     }
 
     private fun setupActivityCard() {
