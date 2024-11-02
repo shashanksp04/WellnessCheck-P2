@@ -205,7 +205,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
-
                         <!-- Intake Row -->
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -229,11 +228,12 @@
                                 android:layout_marginEnd="4dp" />
 
                             <TextView
+                                android:id="@+id/calorieIntake"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="200 kcal"
-                            android:textSize="14sp"
-                            android:textColor="@color/textColorPrimary" />
+                                android:textSize="14sp"
+                                android:textColor="@color/textColorPrimary" />
                         </LinearLayout>
 
                         <!-- Remaining Row -->
@@ -259,11 +259,12 @@
                                 android:layout_marginEnd="4dp" />
 
                             <TextView
+                                android:id="@+id/calorieRemaining"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="1800 kcal"
-                            android:textSize="14sp"
-                            android:textColor="@color/textColorPrimary" />
+                                android:textSize="14sp"
+                                android:textColor="@color/textColorPrimary" />
                         </LinearLayout>
 
                         <!-- Burned Row -->
@@ -288,92 +289,14 @@
                                 android:layout_marginEnd="4dp" />
 
                             <TextView
+                                android:id="@+id/calorieBurned"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="500 kcal"
-                            android:textSize="14sp"
-                            android:textColor="@color/textColorPrimary" />
+                                android:textSize="14sp"
+                                android:textColor="@color/textColorPrimary" />
                         </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
 
-                <!-- Divider -->
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/progressBackground"
-                    android:layout_marginVertical="12dp" />
-
-                <!-- Goals Section -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingHorizontal="8dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginBottom="8dp">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Daily Calorie Goal"
-                            android:textColor="@color/textColorPrimary"
-                            android:textSize="16sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="2000 kcal"
-                            android:textColor="@color/textColorSecondary"
-                            android:textSize="16sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginBottom="8dp">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Goal Weight"
-                            android:textColor="@color/textColorPrimary"
-                            android:textSize="16sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="70 kg"
-                            android:textColor="@color/textColorSecondary"
-                            android:textSize="16sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Daily Water Intake Goal"
-                            android:textColor="@color/textColorPrimary"
-                            android:textSize="16sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="2 L"
-                        android:textColor="@color/textColorSecondary"
-                        android:textSize="16sp" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -383,7 +306,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Edit"
-                    android:layout_marginTop="16dp"
+                    android:layout_margin="8dp"
                     android:backgroundTint="@color/accentColor"
                     android:textColor="@color/white" />
             </LinearLayout>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/popup_background"
+    android:gravity="center">
+
+    <!-- Title for Popup -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Calorie Information"
+        android:textSize="18sp"
+        android:textColor="@color/textColorPrimary"
+        android:textStyle="bold"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Intake Input Field with Label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calorie Intake"
+        android:textSize="14sp"
+        android:textColor="@color/textColorSecondary"
+        android:layout_marginBottom="4dp" />
+
+    <EditText
+        android:id="@+id/intake_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:hint="Enter intake in kcal"
+        android:inputType="number"
+        android:backgroundTint="@color/progressBackground"
+        android:padding="10dp"
+        android:background="@drawable/edittext_background" />
+
+    <!-- Remaining Input Field with Label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calories Remaining"
+        android:textSize="14sp"
+        android:textColor="@color/textColorSecondary"
+        android:layout_marginBottom="4dp" />
+
+    <EditText
+        android:id="@+id/remaining_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:hint="Enter remaining calories in kcal"
+        android:inputType="number"
+        android:backgroundTint="@color/progressBackground"
+        android:padding="10dp"
+        android:background="@drawable/edittext_background" />
+
+    <!-- Burned Input Field with Label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calories Burned"
+        android:textSize="14sp"
+        android:textColor="@color/textColorSecondary"
+        android:layout_marginBottom="4dp" />
+
+    <EditText
+        android:id="@+id/burned_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:hint="Enter burned calories in kcal"
+        android:inputType="number"
+        android:backgroundTint="@color/progressBackground"
+        android:padding="10dp"
+         />
+
+    <!-- Save Button with Custom Style -->
+    <Button
+        android:id="@+id/save_calorie_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:backgroundTint="@color/accentColor"
+        android:textColor="@color/white"
+        android:layout_marginTop="8dp"
+        android:padding="12dp"
+        android:background="@drawable/button_background" />
+
+</LinearLayout>

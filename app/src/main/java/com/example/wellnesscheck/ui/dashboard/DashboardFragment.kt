@@ -33,6 +33,8 @@ class DashboardFragment : Fragment() {
         // Setup activity spinner and add activity button
         setupActivityCard()
 
+        // Setup calorie recommendations edit button
+        setupCalorieRecommendationsEditButton()
 
         return root
     }
@@ -61,11 +63,11 @@ class DashboardFragment : Fragment() {
 
         // Show add activity popup when button is clicked
         binding.addActivityButton.setOnClickListener {
-            showAddActivityPopup(adapter)
+            showAddNewActivityPopup(adapter)
         }
     }
 
-    private fun showAddActivityPopup(adapter: ArrayAdapter<String>) {
+    private fun showAddNewActivityPopup(adapter: ArrayAdapter<String>) {
         // Inflate the popup layout
         val inflater = LayoutInflater.from(requireContext())
         val popupView = inflater.inflate(R.layout.popup_add_activity, null)
@@ -91,6 +93,52 @@ class DashboardFragment : Fragment() {
                 val newActivity = "$activityType: $duration mins, $intensity"
                 activities.add(newActivity)
                 adapter.notifyDataSetChanged()
+                dialog.dismiss()
+            } else {
+                Toast.makeText(requireContext(), "Please fill all fields", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        dialog.show()
+    }
+
+    private fun setupCalorieRecommendationsEditButton() {
+        binding.editButton.setOnClickListener {
+            showEditCaloriePopup()
+        }
+    }
+
+    private fun showEditCaloriePopup() {
+        // Inflate the popup layout
+        val inflater = LayoutInflater.from(requireContext())
+        val popupView = inflater.inflate(R.layout.popup_edit_calorie, null)
+
+        // Initialize the popup elements
+        val intakeInput: EditText = popupView.findViewById(R.id.intake_input)
+        val remainingInput: EditText = popupView.findViewById(R.id.remaining_input)
+        val burnedInput: EditText = popupView.findViewById(R.id.burned_input)
+        val saveButton: Button = popupView.findViewById(R.id.save_calorie_button)
+
+        // Pre-fill the fields with current values (if available)
+        intakeInput.setText(binding.calorieIntake.text.toString().replace(" kcal", ""))
+        remainingInput.setText(binding.calorieRemaining.text.toString().replace(" kcal", ""))
+        burnedInput.setText(binding.calorieBurned.text.toString().replace(" kcal", ""))
+
+        // Create AlertDialog for the popup
+        val dialog = AlertDialog.Builder(requireContext())
+            .setView(popupView)
+            .create()
+
+        saveButton.setOnClickListener {
+            val intake = intakeInput.text.toString()
+            val remaining = remainingInput.text.toString()
+            val burned = burnedInput.text.toString()
+
+            if (intake.isNotEmpty() && remaining.isNotEmpty() && burned.isNotEmpty()) {
+                // Update the displayed values
+                binding.calorieIntake.text = "$intake kcal"
+                binding.calorieRemaining.text = "$remaining kcal"
+                binding.calorieBurned.text = "$burned kcal"
                 dialog.dismiss()
             } else {
                 Toast.makeText(requireContext(), "Please fill all fields", Toast.LENGTH_SHORT).show()

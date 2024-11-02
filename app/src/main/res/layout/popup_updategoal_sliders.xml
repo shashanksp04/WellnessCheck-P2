@@ -3,35 +3,81 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="@drawable/popup_background"
     android:padding="16dp">
 
-    <!-- Goal Weight Slider -->
+    <!-- Title for the Popup -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Weight (Kg)"
-        android:textSize="16sp"
-        android:layout_marginBottom="8dp" />
+        android:text="Set Your Goals"
+        android:textSize="18sp"
+        android:textColor="@color/textColorPrimary"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Goal Weight Slider Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Goal Weight (kg)"
+            android:textSize="16sp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/weightGoalValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="70 kg"
+            android:textSize="14sp"
+            android:textColor="@color/textColorSecondary" />
+    </LinearLayout>
 
     <SeekBar
         android:id="@+id/weightGoalSlider"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:max="200" />
+        android:max="200"
+        android:progress="70" />
 
-    <!-- Goal Calorie Slider -->
-    <TextView
-        android:layout_width="wrap_content"
+    <!-- Goal Calorie Slider Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Calories (kcal)"
-        android:textSize="16sp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Goal Calories (kcal)"
+            android:textSize="16sp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/caloriesGoalValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2000 kcal"
+            android:textSize="14sp"
+            android:textColor="@color/textColorSecondary" />
+    </LinearLayout>
 
     <SeekBar
         android:id="@+id/caloriesGoalSlider"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:max="3000" />
+        android:max="3000"
+        android:progress="2000" />
 
 </LinearLayout>

@@ -3,15 +3,43 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="@drawable/popup_background"
     android:padding="16dp">
 
-    <!-- Water Slider -->
+    <!-- Title for the Popup -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Water (L)"
-        android:textSize="16sp"
-        android:layout_marginBottom="8dp" />
+        android:text="Adjust Your Daily Goals"
+        android:textSize="18sp"
+        android:textColor="@color/textColorPrimary"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Water Slider -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Water (L)"
+            android:textSize="16sp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/waterValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2.5 L"
+            android:textSize="14sp"
+            android:textColor="@color/textColorSecondary" />
+    </LinearLayout>
 
     <SeekBar
         android:id="@+id/waterSlider"
@@ -20,13 +48,29 @@
         android:max="500" />
 
     <!-- Calories Slider -->
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Calories (kcal)"
-        android:textSize="16sp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calories (kcal)"
+            android:textSize="16sp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/caloriesValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1500 kcal"
+            android:textSize="14sp"
+            android:textColor="@color/textColorSecondary" />
+    </LinearLayout>
 
     <SeekBar
         android:id="@+id/caloriesSlider"
@@ -35,13 +79,29 @@
         android:max="3000" />
 
     <!-- Steps Slider -->
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Steps"
-        android:textSize="16sp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Steps"
+            android:textSize="16sp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/stepsValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8000 steps"
+            android:textSize="14sp"
+            android:textColor="@color/textColorSecondary" />
+    </LinearLayout>
 
     <SeekBar
         android:id="@+id/stepsSlider"
@@ -50,13 +110,29 @@
         android:max="20000" />
 
     <!-- Sleep Slider -->
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sleep (hrs)"
-        android:textSize="16sp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sleep (hrs)"
+            android:textSize="16sp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/sleepValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="7 hrs"
+            android:textSize="14sp"
+            android:textColor="@color/textColorSecondary" />
+    </LinearLayout>
 
     <SeekBar
         android:id="@+id/sleepSlider"
@@ -65,13 +141,29 @@
         android:max="12" />
 
     <!-- Weight Slider -->
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Weight (kg)"
-        android:textSize="16sp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"/>
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Weight (kg)"
+            android:textSize="16sp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/weightValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="70 kg"
+            android:textSize="14sp"
+            android:textColor="@color/textColorSecondary" />
+    </LinearLayout>
 
     <SeekBar
         android:id="@+id/weightSlider"
