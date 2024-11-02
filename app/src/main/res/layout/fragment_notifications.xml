@@ -99,11 +99,13 @@
                     android:textStyle="bold" />
 
                 <EditText
+                    android:id="@+id/weightUpdate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Enter your current weight here"
+                    android:hint="Enter your current weight (kg) here"
                     android:inputType="number"
                     android:minHeight="48dp"
+                    android:enabled="true"
                     android:textSize="15dp" />
 
                 <TextView
@@ -115,11 +117,13 @@
                     android:textStyle="bold" />
 
                 <EditText
+                    android:id="@+id/heightUpdate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Enter your current height here"
+                    android:hint="Enter your current height (in cm) here"
                     android:inputType="numberDecimal"
                     android:minHeight="48dp"
+                    android:enabled="true"
                     android:textSize="15dp" />
 
                 <TextView
@@ -131,11 +135,13 @@
                     android:textStyle="bold" />
 
                 <EditText
+                    android:id="@+id/fatUpdate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Enter your current known Body Fat % here"
                     android:inputType="numberDecimal"
                     android:minHeight="48dp"
+                    android:enabled="true"
                     android:textSize="15dp" />
 
                 <TextView
@@ -147,11 +153,13 @@
                     android:textStyle="bold" />
 
                 <EditText
+                    android:id="@+id/massUpdate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Enter your current known Muscle Mass here"
                     android:inputType="number"
                     android:minHeight="48dp"
+                    android:enabled="true"
                     android:textSize="15dp" />
 
                 <Button
@@ -159,7 +167,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
-                    android:text="Update Data" />
+                    android:text="Update Data"
+                    android:backgroundTint="@color/accentColor"
+                    android:textColor="@android:color/white"/>
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -231,7 +241,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Submit"
-                    android:layout_marginBottom="16dp" />
+                    android:layout_marginBottom="16dp"
+                    android:backgroundTint="@color/accentColor"
+                    android:textColor="@android:color/white"/>
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -250,12 +262,13 @@
                 android:orientation="vertical"
                 android:padding="16dp">
 
-                <Button
-                    android:id="@+id/getRecommendationButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Get Recipe for the dish"
-                    android:layout_marginBottom="16dp" />
+<!--                <Button-->
+<!--                    android:id="@+id/getRecommendationButton"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Get Recipe for the dish"-->
+<!--                    android:layout_marginBottom="16dp"-->
+<!--                    />-->
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -274,12 +287,15 @@
                         android:layout_height="wrap_content"
                         android:text="Chicken Salad"
                         android:textSize="16sp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        />
 
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="View Recipe" />
+                        android:text="View Recipe"
+                        android:backgroundTint="@color/accentColor"
+                        android:textColor="@android:color/white"/>
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>

@@ -198,8 +198,9 @@
 
                     <!-- Placeholder for Pie Chart or Icon -->
                     <ImageView
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
+                        android:id="@+id/graphImage"
+                        android:layout_width="170dp"
+                        android:layout_height="170dp"
                         android:src="@drawable/pie"
                         android:layout_marginStart="16dp"
                         android:layout_marginEnd="24dp" />

@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.wellnesscheck.R
 import com.example.wellnesscheck.databinding.FragmentDashboardBinding
+import kotlin.random.Random
 
 class DashboardFragment : Fragment() {
 
@@ -20,6 +21,7 @@ class DashboardFragment : Fragment() {
     private lateinit var updateWaterButton: Button
     private lateinit var foodEdit : EditText
     private lateinit var waterEdit : EditText
+    private lateinit var editGraph: ImageView
 
     // Sample list of activities
     private val activities = mutableListOf("Select an activity...", "Running: 30 mins, Moderate", "Walking: 45 mins, Light")
@@ -40,11 +42,7 @@ class DashboardFragment : Fragment() {
         updateWaterButton = binding.waterUpdate
         foodEdit = binding.foodEdit
         waterEdit = binding.waterEdit
-//        val roots = inflater.inflate(R.layout.fragment_dashboard, container, false)
-//        updateFoodButton = roots.findViewById(R.id.foodUpdate)
-//        updateWaterButton = roots.findViewById(R.id.waterUpdate)
-//        foodEdit = roots.findViewById(R.id.foodEdit)
-//        waterEdit = roots.findViewById(R.id.waterEdit)
+        editGraph = binding.graphImage
 
         updateFoodButton.setOnClickListener{
             updateValue(foodEdit, "500 kcal")}
@@ -63,6 +61,7 @@ class DashboardFragment : Fragment() {
         textVal.setText("")
         textVal.hint = stringVal
     }
+
 
     private fun setupActivityCard() {
         // Initialize the spinner with activities
@@ -158,12 +157,14 @@ class DashboardFragment : Fragment() {
             val intake = intakeInput.text.toString()
             val remaining = remainingInput.text.toString()
             val burned = burnedInput.text.toString()
+            val chartValue = getRandomChart()
 
             if (intake.isNotEmpty() && remaining.isNotEmpty() && burned.isNotEmpty()) {
                 // Update the displayed values
                 binding.calorieIntake.text = "$intake kcal"
                 binding.calorieRemaining.text = "$remaining kcal"
                 binding.calorieBurned.text = "$burned kcal"
+                editGraph.setImageResource(chartValue)
                 dialog.dismiss()
             } else {
                 Toast.makeText(requireContext(), "Please fill all fields", Toast.LENGTH_SHORT).show()
@@ -176,5 +177,17 @@ class DashboardFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun getRandomChart(): Int {
+        val charts = listOf("chart1", "chart2", "chart3", "chart4")
+        val chartName = charts[Random.nextInt(charts.size)]
+        return when (chartName) {
+            "chart1" -> R.drawable.chart1 // Assuming you have chart1.png in drawable
+            "chart2" -> R.drawable.chart2 // Assuming you have chart2.png in drawable
+            "chart3" -> R.drawable.chart3 // Assuming you have chart3.png in drawable
+            "chart4" -> R.drawable.chart4 // Assuming you have chart4.png in drawable
+            else -> R.drawable.pie // Default chart image if no match
+        }
     }
 }
