@@ -90,13 +90,6 @@
                 android:orientation="vertical"
                 android:padding="16dp">
 
-                <Button
-                    android:id="@+id/updateDataButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Update Data"
-                    android:layout_marginBottom="16dp" />
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -110,30 +103,30 @@
                     android:layout_height="wrap_content"
                     android:hint="Enter your current weight here"
                     android:inputType="number"
-                    android:textSize="15dp"
-                    android:minHeight="48dp" />
+                    android:minHeight="48dp"
+                    android:textSize="15dp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="8dp"
-                    android:text="Current BMI : "
+                    android:text="Current Height : "
                     android:textSize="20dp"
                     android:textStyle="bold" />
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Enter your current know BMI here"
+                    android:hint="Enter your current height here"
                     android:inputType="numberDecimal"
-                    android:textSize="15dp"
-                    android:minHeight="48dp" />
+                    android:minHeight="48dp"
+                    android:textSize="15dp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="8dp"
-                    android:text= "Body Fat % : "
+                    android:text="Body Fat % : "
                     android:textSize="20dp"
                     android:textStyle="bold" />
 
@@ -142,8 +135,8 @@
                     android:layout_height="wrap_content"
                     android:hint="Enter your current known Body Fat % here"
                     android:inputType="numberDecimal"
-                    android:textSize="15dp"
-                    android:minHeight="48dp" />
+                    android:minHeight="48dp"
+                    android:textSize="15dp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -158,8 +151,16 @@
                     android:layout_height="wrap_content"
                     android:hint="Enter your current known Muscle Mass here"
                     android:inputType="number"
-                    android:textSize="15dp"
-                    android:minHeight="48dp" />
+                    android:minHeight="48dp"
+                    android:textSize="15dp" />
+
+                <Button
+                    android:id="@+id/updateDataButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="Update Data" />
+
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -176,13 +177,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="16dp">
-
-                <Button
-                    android:id="@+id/submitButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Submit"
-                    android:layout_marginBottom="16dp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -231,6 +225,14 @@
                     android:textSize="15dp"
                     android:inputType="number"
                     android:minHeight="48dp" />
+
+                <Button
+                    android:id="@+id/submitButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Submit"
+                    android:layout_marginBottom="16dp" />
+
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -252,7 +254,7 @@
                     android:id="@+id/getRecommendationButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Get Recommendation"
+                    android:text="Get Recipe for the dish"
                     android:layout_marginBottom="16dp" />
 
                 <ImageView

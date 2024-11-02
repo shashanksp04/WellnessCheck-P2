@@ -36,7 +36,8 @@ class NotificationsFragment : Fragment() {
         )
 
         // Set up RecyclerView with a horizontal layout and GraphRecyclerAdapter
-        binding.recyclerViewGraphs.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.recyclerViewGraphs.layoutManager = LinearLayoutManager(requireContext(),
+            LinearLayoutManager.HORIZONTAL, false)
         val graphRecyclerAdapter = GraphRecyclerAdapter(graphs)
         binding.recyclerViewGraphs.adapter = graphRecyclerAdapter
     }
