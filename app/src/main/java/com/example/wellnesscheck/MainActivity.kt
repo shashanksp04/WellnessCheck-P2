@@ -28,7 +28,8 @@ class MainActivity : AppCompatActivity() {
         // Set up AppBarConfiguration if you need it with the menu IDs
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
+                R.id.navigation_home, R.id.navigation_dashboard,
+                R.id.navigation_notifications, R.id.navigation_weekly_summary
             )
         )
 

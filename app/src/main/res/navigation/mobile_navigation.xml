@@ -22,4 +22,33 @@
         android:name="com.example.wellnesscheck.ui.notifications.NotificationsFragment"
         android:label="Notifications"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_weekly_summary"
+        android:name="com.example.wellnesscheck.WeeklySummary"
+        android:label="Weekly Summary"
+        tools:layout="@layout/fragment_weekly_summary">
+
+        <action
+            android:id="@+id/action_weeklySummaryFragment_to_recommendationsFragment"
+            app:destination="@id/navigation_recommendations" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_recommendations"
+        android:name="com.example.wellnesscheck.Recommendations"
+        android:label="Recommendations"
+        tools:layout="@layout/fragment_recommendations">
+
+        <action
+            android:id="@+id/action_recommendationsFragment_to_goalAdjustmentFragment"
+            app:destination="@id/navigation_goalAdjustment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_goalAdjustment"
+        android:name="com.example.wellnesscheck.GoalAdjustment"
+        android:label="Adjust Goals"
+        tools:layout="@layout/fragment_goal_adjustment" />
+
 </navigation>
